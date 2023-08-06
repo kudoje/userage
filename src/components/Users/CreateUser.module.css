@@ -1,0 +1,27 @@
+.formochka {
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 30rem;
+  }
+  
+  .formochka label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+  }
+  
+  .formochka input {
+    font: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0.1rem;
+    margin-bottom: 0.7rem;
+  }
+  
+  .formochka input:focus {
+    outline: none;
+    border-color: #074ea0;
+  }
+  
