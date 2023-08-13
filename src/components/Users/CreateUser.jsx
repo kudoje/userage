@@ -2,9 +2,12 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
 import styles from "./CreateUser.module.css"
-import { useState } from "react";
+import React,{ useState, useRef } from "react";
 
 const CreateUser = (props) => {
+
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
 
     const [inputName, setInputName] = useState("");
     const [inputAge, setInputAge] = useState("");
@@ -42,18 +45,19 @@ const CreateUser = (props) => {
     };
 
   return (
-    <div>
-    {error && <ErrorModal onClose={errorHandler} title={error.title} message={error.message}/>}
-    <Card className={styles.formochka}>
+    <React.Fragment>
+        {error && <ErrorModal onCloseModal={errorHandler} title={error.title} message={error.message}/>}
+        <Card className={styles.formochka}>
         <form onSubmit={createUserHandler}>
             <label htmlFor="name">Имя</label>
-            <input id="name" type="text" onChange={nameChangeHandler} value={inputName}/>
+            <input id="name" type="text" onChange={nameChangeHandler} value={inputName} ref={nameInputRef}/>
             <label htmlFor="age">Возраст</label>
-            <input id="age" type="number" min="0" onChange={ageChangeHandler} value={inputAge}/>
+            <input id="age" type="number" min="0" onChange={ageChangeHandler} value={inputAge} ref={ageInputRef}/>
             <Button type="submit">Submit</Button>
         </form>
-    </Card>
-    </div>
+         </Card>
+    </React.Fragment>
+
   )
 }
 export default CreateUser
